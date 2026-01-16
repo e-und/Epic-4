@@ -48,7 +48,7 @@ document.getElementById('musicControl').onclick = () => {
 // Countdown Timer
 function initializeCountdown() {
     // Set the wedding date (June 15, 2024)
-    const weddingDate = new Date('June 15, 2024 08:00:00').getTime();
+    const weddingDate = new Date('June 15, 2026 08:00:00').getTime();
     
     // Update countdown every second
     const countdownInterval = setInterval(function() {
@@ -70,7 +70,7 @@ function initializeCountdown() {
         // If the countdown is over
         if (distance < 0) {
             clearInterval(countdownInterval);
-            document.getElementById('countdown').innerHTML = "<h3>Acara telah dilaksanakan!</h3>";
+            document.getElementById('countdown').innerHTML = "<h3>Acara akan dilaksanakan!</h3>";
         }
     }, 1000);
 }
@@ -85,28 +85,28 @@ function openLightbox(imgId) {
     // Daftar foto dengan URL dan caption
     const photos = {
         'foto1': {
-            url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            caption: 'Pertemuan Pertama - 2019'
+            url: '1.jpeg',//ganti
+            caption: 'Prewedding'//ganti
         },
         'foto2': {
-            url: 'https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            caption: 'Momen Spesial - 2020'
+            url: '2.jpg',//ganti
+            caption: 'Prewedding'//ganti
         },
         'foto3': {
-            url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            caption: 'Lamaran - 2022'
+            url: '3.jpg',//ganti
+            caption: 'Prewedding'//ganti
         },
         'foto4': {
-            url: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            caption: 'Pre-Wedding - 2023'
+            url: '4.jpg',//ganti
+            caption: 'Prewedding'//ganti
         },
         'foto5': {
-            url: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            caption: 'Sesi Foto Adat Jawa'
+            url: '5.jpg',//ganti
+            caption: 'Sesi Foto Adat Jawa'//ganti
         },
         'foto6': {
-            url: 'https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            caption: 'Persiapan Pernikahan'
+            url: '7.jpg',//ganti
+            caption: 'Persiapan Pernikahan'//ganti
         }
     };
     
