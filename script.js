@@ -17,33 +17,51 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
 });
 
-// MUSIK OTOMATIS PALING SIMPLE
+// --- BAGIAN MUSIK & COVER (REPLACE KODE LAMA) ---
+
 const music = document.getElementById('backgroundMusic');
 const icon = document.getElementById('musicIcon');
+const openBtn = document.getElementById('openBtn');
 
-// Setup
+// 1. Setup Awal: Volume & Nonaktifkan Scroll
 music.volume = 0.5;
-music.loop = true;
+document.body.style.overflow = 'hidden'; // Kunci scroll saat di cover
 
-// Auto play AGGRESIF
-setTimeout(() => music.play().then(() => {
-    icon.className = "fas fa-pause";
-}).catch(() => {
-    // Coba lagi dengan trik
-    music.muted = true;
+// 2. Fungsi Tombol "Buka Undangan"
+openBtn.addEventListener('click', function() {
+    // A. Putar Musik
     music.play().then(() => {
-        setTimeout(() => {
-            music.muted = false;
-            icon.className = "fas fa-pause";
-        }, 100);
+        icon.className = "fas fa-pause";
+    }).catch((error) => {
+        console.log("Gagal memutar audio otomatis: ", error);
     });
-}), 200);
 
-// Toggle saat klik icon
+    // B. Buka Kunci Scroll
+    document.body.style.overflow = 'auto';
+
+    // C. Scroll Halus ke Section Mempelai
+    document.getElementById('couple').scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+    
+    // D. Jalankan Animasi AOS (opsional, untuk memastikan animasi jalan)
+    setTimeout(() => {
+        AOS.refresh();
+    }, 500);
+});
+
+// 3. Toggle Icon Musik (Play/Pause manual)
 document.getElementById('musicControl').onclick = () => {
-    music.paused ? music.play() : music.pause();
-    icon.className = music.paused ? "fas fa-play" : "fas fa-pause";
+    if (music.paused) {
+        music.play();
+        icon.className = "fas fa-pause";
+    } else {
+        music.pause();
+        icon.className = "fas fa-play";
+    }
 };
+
+// --- AKHIR BAGIAN MUSIK ---
 
 // Countdown Timer
 function initializeCountdown() {
@@ -351,3 +369,7 @@ function setupEventListeners() {
         });
     });
 }
+
+
+
+
